@@ -22,21 +22,18 @@ public class Main {
             text[index] = sf.useDelimiter("\t").nextLine() + "\t";
             text[index] = text[index].replace("%", "");
         }
-        System.out.println(text[7]);
         sf.close( );
-        index++;
 
-        for (int i = 0 ; i < index; i++)
+        for (int i = 0 ; i < index + 1; i++)
         {
             Scanner sf2 = new Scanner(text[i]);
             sf2.useDelimiter("\t");
             names[i] = sf2.next() + " " + sf2.next();
             grades[i] = sf2.nextInt();
             absences[i] = sf2.nextInt();
-            System.out.println(grades[i]);
         }
 
-        Class obj = new Class(names, grades, absences);
+        Class user = new Class(names, grades, absences, index);
 
 
 
@@ -57,13 +54,13 @@ public class Main {
             if (option == 1) {
                 System.out.println("Please enter the student's full name (First Name, Last Name).");
                 String name = n.nextLine();
-                System.out.println(obj.getInfo(name));
+                System.out.println(user.getInfo(name));
             }
             else if (option == 2) {
-                System.out.println("Class average: " + obj.getAverage());
+                System.out.println("Class average: " + user.getAverage());
             }
             else if (option == 3) {
-                System.out.println(obj.getNOG());
+                System.out.println(user.getNOG());
             }
             else if (option == 4) {
                 cont = false;
